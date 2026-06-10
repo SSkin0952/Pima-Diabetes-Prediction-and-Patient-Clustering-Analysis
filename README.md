@@ -18,10 +18,10 @@ Model performance comparison:
 
 | Model | Accuracy | ROC-AUC |
 |---------|----------|----------|
-| Logistic Regression | 0.701 | 0.837 |
-| Gradient Boosting | 0.766 | 0.832 |
-| Random Forest | 0.766 | 0.849 |
-| MLP Classifier | 0.740 | 0.821 |
+| Logistic Regression | 0.701 | 0.808 |
+| Gradient Boosting | 0.766 | 0.833 |
+| Random Forest | 0.734 | 0.814 |
+| MLP Classifier | 0.747 | 0.817 |
 
 Key findings:
 
