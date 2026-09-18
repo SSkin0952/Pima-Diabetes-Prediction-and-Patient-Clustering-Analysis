@@ -1,23 +1,31 @@
 # Pima Diabetes Prediction and Patient Clustering Analysis
 
-This project performs diabetes prediction and patient subtype discovery on the Pima Indians Diabetes Dataset using Logistic Regression, Random Forest, MLP, Bootstrap Inference, KMeans, and Hierarchical Clustering.
+[English](#english) | [中文](#中文)
 
-## Sample Outputs
+---
 
-### ROC Curve Comparison
+<a id="english"></a>
+
+## English
+
+This project performs diabetes prediction and patient subtype discovery on the **Pima Indians Diabetes Dataset** using Logistic Regression, Gradient Boosting, Random Forest, MLP, bootstrap inference, KMeans, and hierarchical clustering.
+
+### Sample Outputs
+
+#### ROC Curve Comparison
 
 ![ROC Curve](output/figures/02_roc_curve_comparison.png)
 
-### Cluster Visualization
+#### Cluster Visualization
 
 ![Clusters](output/figures/09_kmeans_clusters_pca.png)
 
-## Results
+### Results
 
 Model performance comparison:
 
 | Model | Accuracy | ROC-AUC |
-|---------|----------|----------|
+|---|---:|---:|
 | Logistic Regression | 0.701 | 0.808 |
 | Gradient Boosting | 0.766 | 0.833 |
 | Random Forest | 0.734 | 0.814 |
@@ -25,45 +33,45 @@ Model performance comparison:
 
 Key findings:
 
-- Random Forest achieved the highest ROC-AUC.
+- Gradient Boosting achieved the highest accuracy (0.766) and ROC-AUC (0.833).
 - Glucose was identified as the most influential predictor of diabetes risk.
 - BMI and Age also demonstrated strong predictive importance.
 - Clustering analysis identified patient subgroups with different diabetes prevalence rates.
 
-## Project Overview
+### Project Overview
 
 The goal is to predict diabetes outcomes and explore possible patient subtypes based on medical features.
 
 The project includes:
 
-- Data cleaning and missing value imputation
-- Feature standardization
-- Classification models:
+- data cleaning and missing-value imputation
+- feature standardization
+- classification models:
   - Linear Regression baseline
   - Logistic Regression
   - Gradient Boosting
   - Random Forest
   - MLP Classifier
-- Model evaluation:
+- model evaluation:
   - Accuracy
   - Classification report
   - Confusion matrix
   - ROC curve and AUC
   - Calibration curve
-- Bootstrap confidence intervals for logistic regression coefficients
-- Unsupervised clustering:
+- bootstrap confidence intervals for logistic regression coefficients
+- unsupervised clustering:
   - KMeans clustering
   - Hierarchical clustering
   - PCA visualization
   - Cluster outcome distribution
 
-## Dataset
+### Dataset
 
-Dataset: Pima Indians Diabetes Database
+Dataset: **Pima Indians Diabetes Database**
 
 The script downloads the dataset automatically using `kagglehub`.
 
-## Requirements
+### Requirements
 
 ```text
 pandas
@@ -76,14 +84,12 @@ tqdm
 kagglehub
 ```
 
-## Project Structure
+### Project Structure
 
 ```text
 Pima Diabetes Analysis/
-│
 ├── Diabetes analyse.py
 ├── README.md
-│
 └── output/
     ├── figures/
     ├── hierarchical_cluster_summary.csv
@@ -95,9 +101,9 @@ Pima Diabetes Analysis/
     └── results_summary.txt
 ```
 
-## How to Run
+### How to Run
 
-### 1. Install Dependencies
+#### 1. Install Dependencies
 
 Create a Python virtual environment (recommended):
 
@@ -105,21 +111,19 @@ Create a Python virtual environment (recommended):
 python -m venv .venv
 ```
 
-Activate the environment:
+Activate the environment on Windows:
 
-Windows:
-
-```bash
+```powershell
 .venv\Scripts\activate
 ```
 
-Install required packages:
+Install the required packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Run the Analysis
+#### 2. Run the Analysis
 
 Execute the main script:
 
@@ -129,18 +133,18 @@ python "Diabetes analyse.py"
 
 The script will automatically:
 
-- Download the Pima Diabetes dataset
-- Perform data preprocessing and imputation
-- Train multiple machine learning models
-- Evaluate classification performance
-- Perform clustering analysis
-- Generate figures and summary files
+- download the Pima Diabetes dataset
+- perform data preprocessing and imputation
+- train multiple machine-learning models
+- evaluate classification performance
+- perform clustering analysis
+- generate figures and summary files
 
-## Outputs
+### Outputs
 
-All generated files are saved inside the output/ directory.
+All generated files are saved inside the `output/` directory.
 
-### Figures
+#### Figures
 
 The following visualizations are generated:
 
@@ -158,103 +162,288 @@ The following visualizations are generated:
 - Hierarchical Clustering Dendrogram
 - Hierarchical Cluster PCA Visualization
 
-### CSV Results
+#### CSV Results
 
-The script exports:
+The script exports several result files, including:
 
-```text
-output/
-├── logistic_coef_bootstrap_summary.csv
-└── pima_clusters.csv
-```
+- `logistic_coef_bootstrap_summary.csv`: logistic regression coefficient means, 95% bootstrap confidence intervals, and feature-importance rankings
+- `pima_clusters.csv`: original patient records with KMeans and hierarchical cluster assignments
 
-#### logistic_coef_bootstrap_summary.csv
-
-Contains:
-
-- Logistic regression coefficient means
-- 95% bootstrap confidence intervals
-- Feature importance ranking
-
-#### pima_clusters.csv
-
-Contains:
-
-- Original patient records
-- KMeans cluster assignments
-- Hierarchical cluster assignments
-
-## Machine Learning Models
-
-The following models are evaluated and compared:
+### Machine-Learning Models
 
 | Model | Description |
-|-------|-------------|
+|---|---|
 | Linear Regression | Baseline binary prediction model |
 | Logistic Regression | Main interpretable classification model |
-| Gradient Boosting | Tree-based ensemble model |
+| Gradient Boosting | Boosted tree ensemble model |
 | Random Forest | Bagging ensemble model |
 | MLP Classifier | Feed-forward neural network |
 
-Performance metrics include:
+Performance metrics include Accuracy, Precision, Recall, F1 Score, ROC-AUC, and Confusion Matrix.
 
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- ROC AUC
-- Confusion Matrix
-
-## Clustering Analysis
+### Clustering Analysis
 
 Two unsupervised learning methods are used:
 
-### KMeans Clustering
+#### KMeans Clustering
+
 - Elbow Method
 - Silhouette Analysis
 - Cluster Profiling
 - Outcome Distribution Analysis
 
-### Hierarchical Clustering
+#### Hierarchical Clustering
+
 - Ward Linkage
 - Dendrogram Visualization
 - Agglomerative Clustering
 - Cluster Agreement Analysis (Adjusted Rand Index)
 
-## Technologies
-- Python
-- Pandas
-- NumPy
-- Scikit-Learn
-- SciPy
-- Matplotlib
-- Seaborn
-- KaggleHub
-- TQDM
+### Technologies
 
-## Project Highlights
-- End-to-end diabetes prediction pipeline
-- Comparison of linear, tree-based, and neural-network models
-- Bootstrap confidence interval estimation
-- Patient subtype discovery through clustering
-- Automated figure generation
-- Fully executable standalone Python implementation
+Python, Pandas, NumPy, Scikit-Learn, SciPy, Matplotlib, Seaborn, KaggleHub, and TQDM.
 
-## Future Improvements
+### Project Highlights
 
-Potential extensions include:
+- end-to-end diabetes prediction pipeline
+- comparison of linear, tree-based, and neural-network models
+- bootstrap confidence-interval estimation
+- patient subtype discovery through clustering
+- automated figure generation
+- fully executable standalone Python implementation
+
+### Future Improvements
 
 - XGBoost and LightGBM models
-- Hyperparameter optimization
+- hyperparameter optimization
 - SHAP-based model interpretation
-- Cross-validation framework
-- Class imbalance handling
-- Clinical risk scoring system
+- cross-validation framework
+- class-imbalance handling
+- clinical risk-scoring system
 
-## Author
+---
 
-Wei Sun
+<a id="中文"></a>
 
-M.S. Mechanical Engineering, Columbia University
+## 中文
 
-Expected Graduation: Dec 2026
+本项目基于 **Pima Indians Diabetes Dataset（皮马印第安人糖尿病数据集）**，使用逻辑回归、梯度提升、随机森林、多层感知机、Bootstrap 推断、KMeans 和层次聚类，实现糖尿病预测与患者亚型探索。
+
+### 示例输出
+
+#### ROC 曲线对比
+
+![ROC曲线](output/figures/02_roc_curve_comparison.png)
+
+#### 聚类可视化
+
+![聚类结果](output/figures/09_kmeans_clusters_pca.png)
+
+### 实验结果
+
+模型性能对比：
+
+| 模型 | 准确率 | ROC-AUC |
+|---|---:|---:|
+| 逻辑回归 | 0.701 | 0.808 |
+| 梯度提升 | 0.766 | 0.833 |
+| 随机森林 | 0.734 | 0.814 |
+| MLP 分类器 | 0.747 | 0.817 |
+
+主要结论：
+
+- 梯度提升模型取得最高准确率（0.766）和最高 ROC-AUC（0.833）。
+- 血糖（Glucose）是影响糖尿病风险最显著的预测特征。
+- BMI 和年龄（Age）同样具有较强的预测重要性。
+- 聚类分析识别出了糖尿病患病率不同的患者群体。
+
+### 项目概述
+
+本项目旨在根据医学特征预测糖尿病结果，并探索潜在的患者亚型。
+
+项目内容包括：
+
+- 数据清洗与缺失值填补
+- 特征标准化
+- 分类模型：
+  - 线性回归基线模型
+  - 逻辑回归
+  - 梯度提升
+  - 随机森林
+  - MLP 分类器
+- 模型评估：
+  - 准确率
+  - 分类报告
+  - 混淆矩阵
+  - ROC 曲线与 AUC
+  - 校准曲线
+- 逻辑回归系数的 Bootstrap 置信区间
+- 无监督聚类：
+  - KMeans 聚类
+  - 层次聚类
+  - PCA 可视化
+  - 各聚类结果的患病分布
+
+### 数据集
+
+数据集：**Pima Indians Diabetes Database**
+
+程序通过 `kagglehub` 自动下载该数据集。
+
+### 环境依赖
+
+```text
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+scipy
+tqdm
+kagglehub
+```
+
+### 项目结构
+
+```text
+Pima Diabetes Analysis/
+├── Diabetes analyse.py
+├── README.md
+└── output/
+    ├── figures/
+    ├── hierarchical_cluster_summary.csv
+    ├── kmeans_cluster_summary.csv
+    ├── logistic_coef_bootstrap_summary.csv
+    ├── model_auc_comparison.csv
+    ├── model_metrics_summary.csv
+    ├── pima_clusters.csv
+    └── results_summary.txt
+```
+
+### 运行方法
+
+#### 1. 安装依赖
+
+建议先创建 Python 虚拟环境：
+
+```bash
+python -m venv .venv
+```
+
+在 Windows 中激活虚拟环境：
+
+```powershell
+.venv\Scripts\activate
+```
+
+安装所需依赖：
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 2. 运行分析程序
+
+执行主程序：
+
+```bash
+python "Diabetes analyse.py"
+```
+
+程序将自动完成：
+
+- 下载 Pima 糖尿病数据集
+- 数据预处理与缺失值填补
+- 训练多个机器学习模型
+- 评估分类性能
+- 执行聚类分析
+- 生成图表和汇总文件
+
+### 输出结果
+
+所有生成文件均保存在 `output/` 目录中。
+
+#### 图表
+
+程序将生成以下可视化结果：
+
+- 混淆矩阵对比
+- ROC 曲线对比
+- 各模型 ROC 曲线
+- AUC 对比柱状图
+- 预测概率分布
+- 校准曲线
+- 相关性热力图
+- KMeans 肘部法则图
+- KMeans 轮廓系数图
+- PCA 聚类可视化
+- 聚类中心热力图
+- 层次聚类树状图
+- 层次聚类 PCA 可视化
+
+#### CSV 结果
+
+程序将导出多个结果文件，其中包括：
+
+- `logistic_coef_bootstrap_summary.csv`：逻辑回归系数均值、95% Bootstrap 置信区间及特征重要性排名
+- `pima_clusters.csv`：包含 KMeans 与层次聚类标签的原始患者记录
+
+### 机器学习模型
+
+| 模型 | 说明 |
+|---|---|
+| 线性回归 | 二分类预测基线模型 |
+| 逻辑回归 | 主要的可解释分类模型 |
+| 梯度提升 | 基于提升方法的树集成模型 |
+| 随机森林 | 基于 Bagging 的集成模型 |
+| MLP 分类器 | 前馈神经网络 |
+
+评估指标包括准确率、精确率、召回率、F1 分数、ROC-AUC 和混淆矩阵。
+
+### 聚类分析
+
+本项目采用两种无监督学习方法：
+
+#### KMeans 聚类
+
+- 肘部法则
+- 轮廓系数分析
+- 聚类特征分析
+- 结果分布分析
+
+#### 层次聚类
+
+- Ward 连接法
+- 树状图可视化
+- 凝聚层次聚类
+- 聚类一致性分析（调整兰德指数）
+
+### 使用技术
+
+Python、Pandas、NumPy、Scikit-Learn、SciPy、Matplotlib、Seaborn、KaggleHub 和 TQDM。
+
+### 项目亮点
+
+- 端到端糖尿病预测流程
+- 对比线性模型、树模型和神经网络模型
+- 使用 Bootstrap 估计置信区间
+- 通过聚类发现患者亚型
+- 自动生成可视化图表
+- 可独立执行的完整 Python 实现
+
+### 后续改进
+
+- 引入 XGBoost 和 LightGBM
+- 超参数优化
+- 基于 SHAP 的模型解释
+- 交叉验证框架
+- 类别不平衡处理
+- 临床风险评分系统
+
+---
+
+## Author / 作者
+
+Wei Sun  
+M.S. Mechanical Engineering, Columbia University  
+Expected Graduation / 预计毕业时间：December 2026
